@@ -40,7 +40,11 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         count = 0;
-        winTextObject.SetActive(false);
+
+        if (winTextObject != null)
+            winTextObject.SetActive(false);
+
+        SetCountText();
     }
 
     private void FixedUpdate()
@@ -116,7 +120,7 @@ public class PlayerController : MonoBehaviour
             case CollectibleType.PickUp:
                 count += data.value;
                 SetCountText();
-                if (count >= 3)
+                if (count >= 3 && winTextObject != null)
                     winTextObject.SetActive(true);
                 break;
             case CollectibleType.Clef:
@@ -137,6 +141,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + count;
+        if (countText != null)
+            countText.text = "Count: " + count;
     }
 }

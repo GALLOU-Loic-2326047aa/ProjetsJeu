@@ -9,10 +9,17 @@ public class Collectible : MonoBehaviour
     private void Awake()
     {
         GetComponent<Collider>().isTrigger = true;
+
+        if (data == null)
+        {
+            Debug.LogError($"CollectibleData manquant sur l'objet {gameObject.name}. Veuillez assigner un CollectibleData dans l'inspecteur.", this);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (data == null) return;
+
         if (other.TryGetComponent<PlayerController>(out var player))
         {
             player.HandleCollectible(data);

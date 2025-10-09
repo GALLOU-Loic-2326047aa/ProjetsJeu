@@ -159,5 +159,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afe224320a5b42738571f77dc387eb18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  data: {fileID: 0}
+  data: {fileID: 11400000, guid: 6485e29e10b634407a0b7bd1304ee6a0, type: 2}
   destroyOnCollect: 1
