@@ -523,12 +523,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202408403}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
+  m_LocalPosition: {x: -3.66, y: 11, z: -5.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 586291323}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!114 &202408407
 MonoBehaviour:
@@ -539,14 +539,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 202408403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b369bded963fc5418ef69b3d7353fe8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8af388f0967170648a4540b9610a251d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 586291323}
-  mouseSensitivity: 100
-  distanceFromPlayer: 5
-  verticalRotationLimit: 80
-  rotationSmoothTime: 0.1
+  target: {fileID: 586291323}
+  distance: 5
+  height: 2
+  rotationSpeed: 150
 --- !u!1 &298713674
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,8 +1113,7 @@ Transform:
   m_LocalPosition: {x: -3.66, y: 1, z: 4.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 202408406}
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &586291324
@@ -1132,6 +1130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 732301037}
   winTextObject: {fileID: 1058030570}
+  cameraTransform: {fileID: 202408406}
   moveSpeed: 5
   jumpForce: 5
   groundMask:
@@ -2240,3 +2239,4 @@ SceneRoots:
   - {fileID: 1879198229}
   - {fileID: 594652849}
   - {fileID: 1145487814}
+  - {fileID: 202408406}
