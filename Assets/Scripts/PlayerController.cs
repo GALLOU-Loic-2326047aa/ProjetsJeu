@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool isGrounded;
 
+    private int clefs = 0;
+
     public event Action OnJumpButtonPressed;
 
     void Start()
@@ -107,16 +109,19 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void HandleCollectible(CollectibleData data)
     {
-        if (other.CompareTag("PickUp"))
+        switch (data.type)
         {
-            other.gameObject.SetActive(false);
-            count++;
-            SetCountText();
-
-            if (count >= 3)
-                winTextObject.SetActive(true);
+            case CollectibleType.PickUp:
+                count += data.value;
+                SetCountText();
+                if (count >= 3)
+                    winTextObject.SetActive(true);
+                break;
+            case CollectibleType.Clef:
+                clefs += data.value;
+                break;
         }
     }
 
