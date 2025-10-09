@@ -1156,6 +1156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 732301037}
   winTextObject: {fileID: 1058030570}
+  respawnObject: {fileID: 819144042}
+  respawnDelay: 2
   cameraTransform: {fileID: 202408406}
   moveSpeed: 5
   jumpForce: 5
