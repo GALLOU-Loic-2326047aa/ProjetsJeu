@@ -4,19 +4,18 @@ using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
 
-
-
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-
     private int count;
     public TextMeshProUGUI countText;
-
     public GameObject winTextObject;
 
     private float movementX;
     private float movementY;
+
+    [Header("Références")]
+    [SerializeField] private Transform cameraTransform;
 
     [Header("Déplacement")]
     [SerializeField] private float moveSpeed = 5f;
@@ -25,34 +24,38 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private LayerMask groundMask;
 
+    [Header("Dash")]
+    [SerializeField] private float dashForce = 10f;
+    [SerializeField] private float dashDuration = 0.2f;
+
+    private bool isDashing = false;
     private bool isGrounded;
 
     public event Action OnJumpButtonPressed;
 
     void Start()
     {
-        winTextObject.SetActive(false);
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        Debug.Log("✅ PlayerController initialisé !");
-        count = 0; 
-
+        count = 0;
+        winTextObject.SetActive(false);
     }
 
     private void FixedUpdate()
     {
+        if (isDashing) return;
 
-        if (isDashing) return; // pas de contrôle pendant le dash
-
-        // Détection du sol (raycast depuis le centre)
+        // Détection du sol
         float rayDistance = GetComponent<Collider>().bounds.extents.y + 0.1f;
         isGrounded = Physics.Raycast(transform.position, Vector3.down, rayDistance, groundMask);
 
-        Debug.DrawRay(transform.position, Vector3.down * rayDistance, isGrounded ? Color.green : Color.red);
+        // Déplacement relatif à la caméra
+        Vector3 inputDir = new Vector3(movementX, 0f, movementY).normalized;
+        Vector3 moveDir = cameraTransform.forward * inputDir.z + cameraTransform.right * inputDir.x;
+        moveDir.y = 0f;
 
-        // Déplacement horizontal
-        Vector3 horizontalMove = new Vector3(movementX, 0.0f, movementY) * moveSpeed;
-        Vector3 velocity = new Vector3(horizontalMove.x, rb.velocity.y, horizontalMove.z);
+        Vector3 velocity = moveDir * moveSpeed;
+        velocity.y = rb.velocity.y;
         rb.velocity = velocity;
     }
 
@@ -71,39 +74,27 @@ public class PlayerController : MonoBehaviour
     }
     
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
+        // Rotation du joueur vers sa direction de mouvement
+        if (moveDir.magnitude > 0.1f)
         {
-            // Destroy the current object
-            Destroy(gameObject); 
-            // Update the winText to display "You Lose!"
-            winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            Quaternion targetRot = Quaternion.LookRotation(moveDir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10f);
         }
     }
 
-       void SetCountText() 
-    {
-        countText.text =  "Count: " + count.ToString();
-    }
     void OnMove(InputValue movementValue)
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
-        movementX = movementVector.x;
-        movementY = movementVector.y;
+        Vector2 input = movementValue.Get<Vector2>();
+        movementX = input.x;
+        movementY = input.y;
     }
 
     void OnJump(InputValue inputValue)
     {
-        if (inputValue.isPressed)
+        if (inputValue.isPressed && isGrounded)
         {
-            Debug.Log($"Jump input reçu | isGrounded = {isGrounded}");
-            if (isGrounded)
-            {
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                OnJumpButtonPressed?.Invoke();
-            }
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            OnJumpButtonPressed?.Invoke();
         }
     }
 
@@ -115,31 +106,48 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    [SerializeField] private float dashForce = 10f;
-    [SerializeField] private float dashDuration = 0.2f;
-    private bool isDashing = false;
-
     private IEnumerator DashCoroutine()
     {
-        if (isDashing) yield break; // empêche plusieurs dashs simultanés
-        if (movementX == 0 && movementY == 0) yield break; // pas de dash si immobile
+        if (isDashing) yield break;
+        if (movementX == 0 && movementY == 0) yield break;
 
         isDashing = true;
 
-        // Direction du dash
-        Vector3 dashDirection = new Vector3(movementX, 0, movementY).normalized;
+        Vector3 dashDir = (cameraTransform.forward * movementY + cameraTransform.right * movementX).normalized;
+        dashDir.y = 0f;
 
-        // Supprime la vitesse actuelle et applique un coup de boost
         rb.velocity = Vector3.zero;
-        rb.AddForce(dashDirection * dashForce, ForceMode.VelocityChange);
-
-        Debug.Log("💨 Dash lancé !");
+        rb.AddForce(dashDir * dashForce, ForceMode.VelocityChange);
 
         yield return new WaitForSeconds(dashDuration);
-
         isDashing = false;
-        Debug.Log("🏁 Dash terminé !");
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("PickUp"))
+        {
+            other.gameObject.SetActive(false);
+            count++;
+            SetCountText();
 
+            if (count >= 3)
+                winTextObject.SetActive(true);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+            winTextObject.SetActive(true);
+            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+        }
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Count: " + count;
+    }
 }
