@@ -14,6 +14,12 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
 
+    private float respawnHeightOffset = 1f; // combien au-dessus de l'objet respawn
+
+    [Header("Respawn")]
+    [SerializeField] private Transform respawnObject; // objet à assigner dans l'inspecteur
+    [SerializeField] private float respawnDelay = 2f; // délai avant respawn en secondes
+
     [Header("Références")]
     [SerializeField] private Transform cameraTransform;
 
@@ -124,14 +130,26 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
-            winTextObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            StartCoroutine(RespawnCoroutine());
         }
     }
+
 
     void SetCountText()
     {
         countText.text = "Count: " + count;
     }
+
+    private IEnumerator RespawnCoroutine()
+    {
+
+        Vector3 spawnPosition = respawnObject.position + Vector3.up * respawnHeightOffset;
+        transform.position = spawnPosition;
+        rb.velocity = Vector3.zero;
+        isDashing = false;
+
+        yield return null; // nécessaire pour coroutine
+    }
+
+
 }
