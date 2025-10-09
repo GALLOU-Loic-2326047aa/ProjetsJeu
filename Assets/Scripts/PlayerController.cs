@@ -56,20 +56,20 @@ public class PlayerController : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    void OnTriggerEnter(Collider other)
+    public void HandleCollectible(CollectibleData data)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        switch (data.type)
         {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            SetCountText();
-            if (count >= 3)
-            {
-                winTextObject.SetActive(true);
-            }
+            case CollectibleType.PickUp:
+                count += data.value;
+                SetCountText();
+                break;
+            case CollectibleType.Clef:
+                // débloquer une porte, etc.
+                break;
         }
-        
     }
+    
 
     private void OnCollisionEnter(Collision collision)
     {
