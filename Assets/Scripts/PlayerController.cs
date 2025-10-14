@@ -40,6 +40,13 @@ public class PlayerController : MonoBehaviour
     private int clefs = 0;
 
     public event Action OnJumpButtonPressed;
+    
+    [Header("Collectibles")]
+    [Tooltip("Prefab de l'épée tournante à instancier lorsque le joueur collecte une Epee")]
+    [SerializeField] private GameObject spinningSwordPrefab;
+    [Tooltip("Hauteur d'apparition relative au joueur pour l'épée tournante")]
+    [SerializeField] private float swordSpawnHeight = 1f;
+    private GameObject activeSpinningSword;
 
     void Start()
     {
@@ -139,6 +146,13 @@ public class PlayerController : MonoBehaviour
                 break;
             case CollectibleType.Trophee:
                 winTextObject.SetActive(true);
+                break;
+            case CollectibleType.Epee:
+                activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
+                if (activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
+                {
+                    spinningSword.SetPlayer(transform);
+                }
                 break;
         }
     }
