@@ -9,6 +9,12 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1f;
     }
     
+    public void PlayGame2()
+    {
+        SceneManager.LoadScene("MiniGameloic");
+        Time.timeScale = 1f;
+    }
+    
     public void QuitGame()
     {
         Debug.Log("Le jeu est fermé !"); // Utile pour tester dans l’éditeur
