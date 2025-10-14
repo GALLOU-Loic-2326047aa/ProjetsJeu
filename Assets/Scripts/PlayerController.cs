@@ -131,6 +131,14 @@ public class PlayerController : MonoBehaviour
                 break;
             case CollectibleType.Clef:
                 clefs += data.value;
+                foreach (var t in FindObjectsOfType<Transform>())
+                {
+                    if (t.name == "Couvercle")
+                        Destroy(t.gameObject);
+                }
+                break;
+            case CollectibleType.Trophee:
+                winTextObject.SetActive(true);
                 break;
         }
     }

@@ -1,6 +1,8 @@
 using System;
-using UnityEditor;
 using UnityEngine;
+
+#if UNITY_EDITOR
+using UnityEditor;
 
 public static class CollectibleDataAssigner
 {
@@ -80,3 +82,4 @@ public static class CollectibleDataAssigner
         Debug.Log($"Assignation terminée — {assigned} prefabs mis à jour.");
     }
 }
+#endif

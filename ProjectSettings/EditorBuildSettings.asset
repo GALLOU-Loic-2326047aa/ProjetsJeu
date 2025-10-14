@@ -10,6 +10,9 @@ EditorBuildSettings:
     guid: b4ef4d64f9fcd864984c9cd10dbd7cbc
   - enabled: 1
     path: Assets/Scenes/MiniGame.unity
+    guid: 2ecc5bc6d0baa449089c70211ced70ea
+  - enabled: 1
+    path: Assets/Scenes/MiniGameloic.unity
     guid: 4ef83f75e2f59bd418805e47a4594ebc
   - enabled: 1
     path: Assets/Scenes/MenuPause.unity
