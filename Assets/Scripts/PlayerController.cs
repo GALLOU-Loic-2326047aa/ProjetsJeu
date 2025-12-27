@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject spinningSwordPrefab;
     [Tooltip("Hauteur d'apparition relative au joueur pour l'épée tournante")]
     [SerializeField] private float swordSpawnHeight = 1f;
+    [Tooltip("Son à jouer lors de la récupération d'une épée")]
+    [SerializeField] private AudioClip swordPickupSound;
     private GameObject activeSpinningSword;
 
     void Start()
@@ -152,6 +154,10 @@ public class PlayerController : MonoBehaviour
                 if (activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
                 {
                     spinningSword.SetPlayer(transform);
+                }
+                if (swordPickupSound != null)
+                {
+                    AudioSource.PlayClipAtPoint(swordPickupSound, transform.position);
                 }
                 break;
         }
