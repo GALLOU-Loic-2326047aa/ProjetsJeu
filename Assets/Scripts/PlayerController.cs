@@ -151,10 +151,28 @@ public class PlayerController : MonoBehaviour
                 break;
             case CollectibleType.Epee:
                 activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
-                if (activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
+                // Assurer que l'épée a les composants nécessaires
+                if (!activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
                 {
-                    spinningSword.SetPlayer(transform);
+                    spinningSword = activeSpinningSword.AddComponent<SpinningSword>();
                 }
+                if (!activeSpinningSword.TryGetComponent<Rigidbody>(out var rb))
+                {
+                    rb = activeSpinningSword.AddComponent<Rigidbody>();
+                    rb.isKinematic = true;
+                    rb.useGravity = false;
+                }
+                if (!activeSpinningSword.TryGetComponent<Collider>(out var col))
+                {
+                    col = activeSpinningSword.AddComponent<BoxCollider>();
+                    col.isTrigger = true;
+                }
+                spinningSword.SetPlayer(transform);
+                // Configurer les paramètres de l'épée
+                spinningSword.verticalOffset = swordSpawnHeight;
+                spinningSword.orbitRadius = 1.5f;
+                spinningSword.orbitSpeed = 360f;
+                spinningSword.spinSelf = true;
                 if (swordPickupSound != null)
                 {
                     AudioSource.PlayClipAtPoint(swordPickupSound, transform.position);

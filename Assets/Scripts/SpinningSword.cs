@@ -4,11 +4,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class SpinningSword : MonoBehaviour
 {
-    [SerializeField] private Transform player;
-    [SerializeField] private float orbitRadius = 2f;
-    [SerializeField] private float orbitSpeed = 180f; // degrés par seconde
-    [SerializeField] private float verticalOffset = 1f;
-    [SerializeField] private bool spinSelf = true;
+    [SerializeField] public Transform player;
+    [SerializeField] public float orbitRadius = 2f;
+    [SerializeField] public float orbitSpeed = 180f; // degrés par seconde
+    [SerializeField] public float verticalOffset = 1f;
+    [SerializeField] public bool spinSelf = true;
 
     private float angle;
 
