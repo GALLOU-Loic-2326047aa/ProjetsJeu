@@ -6,24 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="b5e09c4f-32ec-45b0-8308-446173848a51" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/ARBRE.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/ARBRE.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/ARBRE.fbx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/ARBRE.fbx.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/CLEF.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/CLEF.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/COFFRE.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/COFFRE.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Epee.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Epee.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Personnage.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Personnage.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/TROPHEE.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/TROPHEE.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Teleporteur.blend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Teleporteur.blend.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/CLEF.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/CLEF.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/CLEF.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/CLEF.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/COFFRE.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/COFFRE.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Epee.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/Epee.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Personnage.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/Personnage.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/TROPHEE.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/TROPHEE.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Teleporteur.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/Teleporteur.fbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3DVisual/Teleporteur.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3DVisual/Teleporteur.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFocus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFocus.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,26 +28,29 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.vscode/extensions.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/ARBRE.blend.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/CLEF.blend.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/COFFRE.blend.meta" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scenes/AcceuilDuJeu.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scenes/AcceuilDuJeu.unity" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scenes/MiniGameloic.unity" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/CLEF.fbx.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/COFFRE.fbx.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/Epee.fbx.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/TROPHEE.fbx.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/3DVisual/Teleporteur.fbx.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Prefabs/spinningSwordPrefab.prefab" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CollectibleData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CollectibleDataAssigner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scripts/CollectibleType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CollectibleType.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scripts/CollectibleType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EnemyMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameStartManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/MenuManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scripts/MenuManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/Assets/Scripts/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PauseManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PauseMenuButtons.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SpinningSword.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Teleporter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/UnityProject/ProjetsJeu/ProjectSettings/EditorBuildSettings.asset" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -157,6 +151,9 @@
       <workItem from="1760012180154" duration="2944000" />
       <workItem from="1766793644622" duration="2741000" />
       <workItem from="1766797464184" duration="1162000" />
+      <workItem from="1766877680304" duration="2318000" />
+      <workItem from="1767725178107" duration="705000" />
+      <workItem from="1767732039387" duration="4212000" />
     </task>
     <task id="LOCAL-00001" summary="Collectible trophee ajouté">
       <option name="closed" value="true" />
@@ -182,7 +179,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760480216285</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="le caca est cuit">
+      <option name="closed" value="true" />
+      <created>1766880430185</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1766880430185</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +217,8 @@
     <MESSAGE value="Collectible trophee ajouté" />
     <MESSAGE value="suite du commit" />
     <MESSAGE value="Plein de trucs cool (teleporteur, epee, trophee, coffre, pause fix)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Plein de trucs cool (teleporteur, epee, trophee, coffre, pause fix)" />
+    <MESSAGE value="le caca est cuit" />
+    <option name="LAST_COMMIT_MESSAGE" value="le caca est cuit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
