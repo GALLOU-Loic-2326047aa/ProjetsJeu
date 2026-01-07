@@ -2,5 +2,6 @@ public enum CollectibleType
 {
     PickUp,
     Clef,
-    Trophee
+    Trophee,
+    Epee
 }

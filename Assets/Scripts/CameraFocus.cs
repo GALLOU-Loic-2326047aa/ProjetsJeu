@@ -25,7 +25,7 @@ public class CameraFocus : MonoBehaviour
         
             yaw += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
             pitch -= Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
-            pitch = Mathf.Clamp(pitch, 5f, 60f);
+            pitch = Mathf.Clamp(pitch, 5f, 90f);
         
 
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);

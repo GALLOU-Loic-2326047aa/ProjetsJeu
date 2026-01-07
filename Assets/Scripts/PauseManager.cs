@@ -22,6 +22,8 @@ public class PauseManager : MonoBehaviour
         SceneManager.LoadScene("MenuPause", LoadSceneMode.Additive);
         Time.timeScale = 0f;
         isPaused = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void ResumeGame()
@@ -30,5 +32,7 @@ public class PauseManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("MenuPause");
         Time.timeScale = 1f;
         isPaused = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }
