@@ -7,9 +7,7 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
-    private int count;
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+
 
     private float movementX;
     private float movementY;
@@ -54,12 +52,6 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
-        count = 0;
-
-        if (winTextObject != null)
-            winTextObject.SetActive(false);
-
-        SetCountText();
     }
 
     private void FixedUpdate()
@@ -132,12 +124,6 @@ public class PlayerController : MonoBehaviour
     {
         switch (data.type)
         {
-            case CollectibleType.PickUp:
-                count += data.value;
-                SetCountText();
-                if (count >= 3 && winTextObject != null)
-                    winTextObject.SetActive(true);
-                break;
             case CollectibleType.Clef:
                 clefs += data.value;
                 foreach (var t in FindObjectsOfType<Transform>())
@@ -145,9 +131,6 @@ public class PlayerController : MonoBehaviour
                     if (t.name == "Couvercle")
                         Destroy(t.gameObject);
                 }
-                break;
-            case CollectibleType.Trophee:
-                winTextObject.SetActive(true);
                 break;
             case CollectibleType.Epee:
                 activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
@@ -190,11 +173,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void SetCountText()
-    {
-        if (countText != null)
-            countText.text = "Count: " + count;
-    }
+
 
     private IEnumerator RespawnCoroutine()
     {
