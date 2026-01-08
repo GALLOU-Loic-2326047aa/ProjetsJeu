@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public void PlayGame()
+    public void LeaderBoard()
     {
         SceneManager.LoadScene("LeaderBoard");
         Time.timeScale = 1f;
