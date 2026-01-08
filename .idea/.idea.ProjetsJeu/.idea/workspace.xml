@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b5e09c4f-32ec-45b0-8308-446173848a51" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFocus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFocus.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +36,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/MiniGameloic.unity" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/MiniGameloic/NavMesh-Ground (1).asset" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scenes/MiniGameloic/NavMesh-Ground (1).asset.meta" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MiniGameloic/NavMesh-Ground (2).asset" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scenes/MiniGameloic/NavMesh-Ground (2).asset.meta" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Collectible.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CollectibleData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CollectibleDataAssigner.cs" root0="FORCE_HIGHLIGHTING" />
@@ -153,7 +156,8 @@
       <workItem from="1766797464184" duration="1162000" />
       <workItem from="1766877680304" duration="2318000" />
       <workItem from="1767725178107" duration="705000" />
-      <workItem from="1767732039387" duration="5359000" />
+      <workItem from="1767732039387" duration="6096000" />
+      <workItem from="1767825986811" duration="1860000" />
     </task>
     <task id="LOCAL-00001" summary="Collectible trophee ajouté">
       <option name="closed" value="true" />
@@ -195,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767744244032</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2eme commit">
+      <option name="closed" value="true" />
+      <created>1767746427679</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1767746427679</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,7 +239,8 @@
     <MESSAGE value="Plein de trucs cool (teleporteur, epee, trophee, coffre, pause fix)" />
     <MESSAGE value="le caca est cuit" />
     <MESSAGE value="Gros commit de début de la tour" />
-    <option name="LAST_COMMIT_MESSAGE" value="Gros commit de début de la tour" />
+    <MESSAGE value="2eme commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="2eme commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
