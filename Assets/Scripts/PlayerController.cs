@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     public TextMeshProUGUI countText;
     public GameObject winTextObject;
+    [SerializeField] private TextMeshProUGUI healthText;
 
     private float movementX;
     private float movementY;
@@ -50,11 +51,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip swordPickupSound;
     private GameObject activeSpinningSword;
 
+    private Health playerHealth;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         count = 0;
+
+        playerHealth = GetComponent<Health>();
+        if (playerHealth != null)
+        {
+            playerHealth.OnDeath.AddListener(OnPlayerDeath);
+            playerHealth.OnHealthChanged.AddListener(UpdateHealthText);
+            UpdateHealthText(playerHealth.GetCurrentHealth()); // initialiser le texte
+        }
 
         if (winTextObject != null)
             winTextObject.SetActive(false);
@@ -150,32 +161,39 @@ public class PlayerController : MonoBehaviour
                 winTextObject.SetActive(true);
                 break;
             case CollectibleType.Epee:
-                activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
-                // Assurer que l'épée a les composants nécessaires
-                if (!activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
+                if (spinningSwordPrefab != null)
                 {
-                    spinningSword = activeSpinningSword.AddComponent<SpinningSword>();
+                    activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
+                    // Assurer que l'épée a les composants nécessaires
+                    if (!activeSpinningSword.TryGetComponent<Rigidbody>(out var rb))
+                    {
+                        rb = activeSpinningSword.AddComponent<Rigidbody>();
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                    }
+                    if (!activeSpinningSword.TryGetComponent<Collider>(out var col))
+                    {
+                        col = activeSpinningSword.AddComponent<BoxCollider>();
+                        col.isTrigger = true;
+                    }
+                    if (!activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
+                    {
+                        spinningSword = activeSpinningSword.AddComponent<SpinningSword>();
+                    }
+                    spinningSword.SetPlayer(transform);
+                    // Configurer les paramètres de l'épée
+                    spinningSword.verticalOffset = swordSpawnHeight;
+                    spinningSword.orbitRadius = 1.5f;
+                    spinningSword.orbitSpeed = 360f;
+                    spinningSword.spinSelf = true;
+                    if (swordPickupSound != null)
+                    {
+                        AudioSource.PlayClipAtPoint(swordPickupSound, transform.position);
+                    }
                 }
-                if (!activeSpinningSword.TryGetComponent<Rigidbody>(out var rb))
+                else
                 {
-                    rb = activeSpinningSword.AddComponent<Rigidbody>();
-                    rb.isKinematic = true;
-                    rb.useGravity = false;
-                }
-                if (!activeSpinningSword.TryGetComponent<Collider>(out var col))
-                {
-                    col = activeSpinningSword.AddComponent<BoxCollider>();
-                    col.isTrigger = true;
-                }
-                spinningSword.SetPlayer(transform);
-                // Configurer les paramètres de l'épée
-                spinningSword.verticalOffset = swordSpawnHeight;
-                spinningSword.orbitRadius = 1.5f;
-                spinningSword.orbitSpeed = 360f;
-                spinningSword.spinSelf = true;
-                if (swordPickupSound != null)
-                {
-                    AudioSource.PlayClipAtPoint(swordPickupSound, transform.position);
+                    Debug.LogWarning("SpinningSwordPrefab n'est pas assigné dans PlayerController.");
                 }
                 break;
         }
@@ -185,7 +203,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(RespawnCoroutine());
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(20); // dégâts infligés par les ennemis
+            }
         }
     }
 
@@ -198,14 +219,34 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RespawnCoroutine()
     {
-
-        Vector3 spawnPosition = respawnObject.position + Vector3.up * respawnHeightOffset;
-        transform.position = spawnPosition;
-        rb.velocity = Vector3.zero;
-        isDashing = false;
+        if (respawnObject != null)
+        {
+            Vector3 spawnPosition = respawnObject.position + Vector3.up * respawnHeightOffset;
+            transform.position = spawnPosition;
+            rb.velocity = Vector3.zero;
+            isDashing = false;
+        }
 
         yield return null; // nécessaire pour coroutine
     }
 
+    private void OnPlayerDeath()
+    {
+        StartCoroutine(RespawnCoroutine());
+        if (playerHealth != null)
+        {
+            playerHealth.Heal(playerHealth.GetMaxHealth());
+        }
 
+        if (activeSpinningSword != null)
+        {
+            Destroy(activeSpinningSword);
+        }
+    }
+
+    private void UpdateHealthText(int currentHealth)
+    {
+        if (healthText != null)
+            healthText.text = "Health: " + currentHealth;
+    }
 }
