@@ -124,6 +124,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue inputValue)
     {
+        Debug.Log("OnJump called, isPressed: " + inputValue.isPressed + ", isGrounded: " + isGrounded);
         if (inputValue.isPressed && isGrounded)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
