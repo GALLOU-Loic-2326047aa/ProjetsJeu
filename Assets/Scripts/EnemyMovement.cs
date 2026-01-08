@@ -13,6 +13,20 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
+        if (!TryGetComponent<Health>(out var health))
+        {
+            health = gameObject.AddComponent<Health>();
+            health.maxHealth = 100; // set default health
+        }
+        // Trouver le joueur par tag au lieu d'assigner manuellement
+        if (player == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                player = playerObj.transform;
+            }
+        }
     }
 
     // Update is called once per frame

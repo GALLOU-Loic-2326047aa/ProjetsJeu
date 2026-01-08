@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Respawn")]
     [SerializeField] private Transform respawnObject; // objet à assigner dans l'inspecteur
-    [SerializeField] private float respawnDelay = 2f; // délai avant respawn en secondes
 
     [Header("Références")]
     [SerializeField] private Transform cameraTransform;

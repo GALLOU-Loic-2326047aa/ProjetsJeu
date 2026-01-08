@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] public int maxHealth = 100;
     [SerializeField] private bool destroyOnDeath = true;
     private int currentHealth;
 
@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
         OnDeath?.Invoke();
         if (destroyOnDeath)
         {
-            Destroy(gameObject);
+            Destroy(transform.root.gameObject); // détruit l'objet racine pour supprimer tout l'ennemi
         }
     }
 }
