@@ -3,15 +3,21 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public void PlayGame()
+    public void LeaderBoard()
     {
-        SceneManager.LoadScene("MiniGame");
+        SceneManager.LoadScene("LeaderBoard");
         Time.timeScale = 1f;
     }
     
     public void PlayGame2()
     {
         SceneManager.LoadScene("MiniGameloic");
+        Time.timeScale = 1f;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("AcceuilDuJeu");
         Time.timeScale = 1f;
     }
     
