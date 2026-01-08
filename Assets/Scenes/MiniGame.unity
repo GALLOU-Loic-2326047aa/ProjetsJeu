@@ -1130,6 +1130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countText: {fileID: 732301037}
   winTextObject: {fileID: 1058030570}
+  respawnObject: {fileID: 0}
+  respawnDelay: 2
   cameraTransform: {fileID: 202408406}
   moveSpeed: 5
   jumpForce: 5
@@ -1138,6 +1140,9 @@ MonoBehaviour:
     m_Bits: 8
   dashForce: 100
   dashDuration: 0.01
+  spinningSwordPrefab: {fileID: 0}
+  swordSpawnHeight: 1
+  swordPickupSound: {fileID: 0}
 --- !u!114 &586291325
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,13 +5,19 @@ public class MenuManager : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("MiniGame");
+        SceneManager.LoadScene("LeaderBoard");
         Time.timeScale = 1f;
     }
     
     public void PlayGame2()
     {
         SceneManager.LoadScene("MiniGameloic");
+        Time.timeScale = 1f;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("AcceuilDuJeu");
         Time.timeScale = 1f;
     }
     
