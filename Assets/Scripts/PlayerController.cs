@@ -51,13 +51,22 @@ public class PlayerController : MonoBehaviour
 
     private Health playerHealth;
 
+    [Header("Animation")]
+    [SerializeField] private Animator animator;
+
     private float lastDamageTime = -1f;
+    private float lastLogTime = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         count = 0;
+
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
 
         playerHealth = GetComponent<Health>();
         if (playerHealth != null)
@@ -91,6 +100,18 @@ public class PlayerController : MonoBehaviour
         {
             Quaternion targetRot = Quaternion.LookRotation(moveDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, Time.deltaTime * 10f);
+        }
+
+        // Contrôle de l'animation de marche
+        if (animator != null)
+        {
+            float speed = moveDir.magnitude;
+            animator.SetFloat("Speed", speed);
+            if (Time.time - lastLogTime >= 1f) // Log la vitesse toutes les secondes
+            {
+                Debug.Log("Speed set to: " + speed);
+                lastLogTime = Time.time;
+            }
         }
     }
 
