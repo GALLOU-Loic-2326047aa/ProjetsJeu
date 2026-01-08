@@ -3,7 +3,7 @@ using TMPro;
 
 public class GameTimer : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
+    [SerializeField] private TextMeshProUGUI timerText;
 
     private float timeElapsed;
     private bool isRunning;
@@ -27,8 +27,8 @@ public class GameTimer : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeElapsed / 60);
         float seconds = timeElapsed % 60;
 
-        timerText.text =
-            minutes.ToString("00") + ":" + seconds.ToString("00.00");
+        if (timerText != null)
+            timerText.text = $"{minutes:00}:{seconds:00.00}";
     }
 
     public void StopTimer()
@@ -36,8 +36,12 @@ public class GameTimer : MonoBehaviour
         isRunning = false;
     }
 
-    public float GetFinalTime()
+    public float GetTime() => timeElapsed;
+
+    public string GetTimeString()
     {
-        return timeElapsed;
+        int minutes = Mathf.FloorToInt(timeElapsed / 60);
+        int seconds = Mathf.FloorToInt(timeElapsed % 60);
+        return $"{minutes:00}:{seconds:00}";
     }
 }
