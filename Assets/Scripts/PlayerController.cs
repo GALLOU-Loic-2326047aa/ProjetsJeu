@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
 
     private Health playerHealth;
 
+    private float lastDamageTime = -1f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -199,13 +201,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (playerHealth != null)
+            if (Time.time - lastDamageTime > 0.5f)
             {
-                playerHealth.TakeDamage(20); // dégâts infligés par les ennemis
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(20); // dégâts infligés par les ennemis toutes les 0.5 secondes
+                    lastDamageTime = Time.time;
+                }
             }
         }
     }
