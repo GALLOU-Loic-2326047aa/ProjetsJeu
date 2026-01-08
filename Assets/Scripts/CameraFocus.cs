@@ -23,7 +23,7 @@ public class CameraFocus : MonoBehaviour
         
         yaw += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
         pitch -= Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
-        pitch = Mathf.Clamp(pitch, -20f, 45f);
+        pitch = Mathf.Clamp(pitch, -25f, 90f);
 
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
         Vector3 offset = rotation * new Vector3(0, 0, -distance);
