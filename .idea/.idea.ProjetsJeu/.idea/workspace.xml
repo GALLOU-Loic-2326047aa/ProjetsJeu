@@ -5,38 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5e09c4f-32ec-45b0-8308-446173848a51" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Axe_Bronze.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Axe_Bronze.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/BookGroup_Medium_2.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/BookGroup_Small_3.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Book_5.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Book_Stack_2.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Bucket_Metal.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Bucket_Wooden_1.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Bucket_Wooden_1.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Cage_Small.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Carrot.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Chandelier.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Coin.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Coin.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Coin_Pile_2.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Crate_Metal.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Scroll_2.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Shelf_Arch.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Shelf_Simple.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/SmallBottles_1.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Stool.fbx.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Sword_Bronze.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Table_Knife.fbx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Cloth_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Cloth_ORM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Furniture_BaseColor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Furniture_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Furniture_ORM.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Metal_BaseColor.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Props_Normal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Props_Normal.png.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic/LightingData.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Crate_Wooden.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Crate_Wooden.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic/NavMesh-Sol1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic/NavMesh-Sol1.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Loic" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
