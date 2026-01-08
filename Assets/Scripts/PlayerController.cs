@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private int count;
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+    [SerializeField] private TextMeshProUGUI healthText;
 
     private float movementX;
     private float movementY;
@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Respawn")]
     [SerializeField] private Transform respawnObject; // objet à assigner dans l'inspecteur
-    [SerializeField] private float respawnDelay = 2f; // délai avant respawn en secondes
 
     [Header("Références")]
     [SerializeField] private Transform cameraTransform;
@@ -50,15 +49,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip swordPickupSound;
     private GameObject activeSpinningSword;
 
+    private Health playerHealth;
+
+    private float lastDamageTime = -1f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         count = 0;
 
-        if (winTextObject != null)
-            winTextObject.SetActive(false);
-
+        playerHealth = GetComponent<Health>();
+        if (playerHealth != null)
+        {
+            playerHealth.OnDeath.AddListener(OnPlayerDeath);
+            playerHealth.OnHealthChanged.AddListener(UpdateHealthText);
+            UpdateHealthText(playerHealth.GetCurrentHealth()); // initialiser le texte
+        }
         SetCountText();
     }
 
@@ -132,12 +139,6 @@ public class PlayerController : MonoBehaviour
     {
         switch (data.type)
         {
-            case CollectibleType.PickUp:
-                count += data.value;
-                SetCountText();
-                if (count >= 3 && winTextObject != null)
-                    winTextObject.SetActive(true);
-                break;
             case CollectibleType.Clef:
                 clefs += data.value;
                 foreach (var t in FindObjectsOfType<Transform>())
@@ -146,46 +147,57 @@ public class PlayerController : MonoBehaviour
                         Destroy(t.gameObject);
                 }
                 break;
-            case CollectibleType.Trophee:
-                winTextObject.SetActive(true);
-                break;
             case CollectibleType.Epee:
-                activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
-                // Assurer que l'épée a les composants nécessaires
-                if (!activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
+                if (spinningSwordPrefab != null)
                 {
-                    spinningSword = activeSpinningSword.AddComponent<SpinningSword>();
+                    activeSpinningSword = Instantiate(spinningSwordPrefab, transform.position + Vector3.up * swordSpawnHeight, Quaternion.identity);
+                    // Assurer que l'épée a les composants nécessaires
+                    if (!activeSpinningSword.TryGetComponent<Rigidbody>(out var rb))
+                    {
+                        rb = activeSpinningSword.AddComponent<Rigidbody>();
+                        rb.isKinematic = true;
+                        rb.useGravity = false;
+                    }
+                    if (!activeSpinningSword.TryGetComponent<Collider>(out var col))
+                    {
+                        col = activeSpinningSword.AddComponent<BoxCollider>();
+                        col.isTrigger = true;
+                    }
+                    if (!activeSpinningSword.TryGetComponent<SpinningSword>(out var spinningSword))
+                    {
+                        spinningSword = activeSpinningSword.AddComponent<SpinningSword>();
+                    }
+                    spinningSword.SetPlayer(transform);
+                    // Configurer les paramètres de l'épée
+                    spinningSword.verticalOffset = swordSpawnHeight;
+                    spinningSword.orbitRadius = 1.5f;
+                    spinningSword.orbitSpeed = 360f;
+                    spinningSword.spinSelf = true;
+                    if (swordPickupSound != null)
+                    {
+                        AudioSource.PlayClipAtPoint(swordPickupSound, transform.position);
+                    }
                 }
-                if (!activeSpinningSword.TryGetComponent<Rigidbody>(out var rb))
+                else
                 {
-                    rb = activeSpinningSword.AddComponent<Rigidbody>();
-                    rb.isKinematic = true;
-                    rb.useGravity = false;
-                }
-                if (!activeSpinningSword.TryGetComponent<Collider>(out var col))
-                {
-                    col = activeSpinningSword.AddComponent<BoxCollider>();
-                    col.isTrigger = true;
-                }
-                spinningSword.SetPlayer(transform);
-                // Configurer les paramètres de l'épée
-                spinningSword.verticalOffset = swordSpawnHeight;
-                spinningSword.orbitRadius = 1.5f;
-                spinningSword.orbitSpeed = 360f;
-                spinningSword.spinSelf = true;
-                if (swordPickupSound != null)
-                {
-                    AudioSource.PlayClipAtPoint(swordPickupSound, transform.position);
+                    Debug.LogWarning("SpinningSwordPrefab n'est pas assigné dans PlayerController.");
                 }
                 break;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            StartCoroutine(RespawnCoroutine());
+            if (Time.time - lastDamageTime > 0.5f)
+            {
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(20); // dégâts infligés par les ennemis toutes les 0.5 secondes
+                    lastDamageTime = Time.time;
+                }
+            }
         }
     }
 
@@ -198,14 +210,34 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator RespawnCoroutine()
     {
-
-        Vector3 spawnPosition = respawnObject.position + Vector3.up * respawnHeightOffset;
-        transform.position = spawnPosition;
-        rb.velocity = Vector3.zero;
-        isDashing = false;
+        if (respawnObject != null)
+        {
+            Vector3 spawnPosition = respawnObject.position + Vector3.up * respawnHeightOffset;
+            transform.position = spawnPosition;
+            rb.velocity = Vector3.zero;
+            isDashing = false;
+        }
 
         yield return null; // nécessaire pour coroutine
     }
 
+    private void OnPlayerDeath()
+    {
+        StartCoroutine(RespawnCoroutine());
+        if (playerHealth != null)
+        {
+            playerHealth.Heal(playerHealth.GetMaxHealth());
+        }
 
+        if (activeSpinningSword != null)
+        {
+            Destroy(activeSpinningSword);
+        }
+    }
+
+    private void UpdateHealthText(int currentHealth)
+    {
+        if (healthText != null)
+            healthText.text = "Health: " + currentHealth;
+    }
 }

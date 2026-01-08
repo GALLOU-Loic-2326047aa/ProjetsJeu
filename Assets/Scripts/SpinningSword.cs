@@ -1,7 +1,5 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Rigidbody))]
 public class SpinningSword : MonoBehaviour
 {
     [SerializeField] public Transform player;
@@ -9,6 +7,7 @@ public class SpinningSword : MonoBehaviour
     [SerializeField] public float orbitSpeed = 180f; // degrés par seconde
     [SerializeField] public float verticalOffset = 1f;
     [SerializeField] public bool spinSelf = true;
+    [SerializeField] public int damage = 50; // dégâts infligés aux ennemis
 
     private float angle;
 
@@ -59,7 +58,17 @@ public class SpinningSword : MonoBehaviour
 
         if (other.CompareTag("Enemy"))
         {
-            Destroy(other.gameObject);
+            Debug.Log("Sword hit enemy: " + other.gameObject.name);
+            Health enemyHealth = other.GetComponent<Health>();
+            if (enemyHealth != null)
+            {
+                enemyHealth.TakeDamage(damage);
+                Debug.Log("Damaged enemy, health now: " + enemyHealth.GetCurrentHealth());
+            }
+            else
+            {
+                Debug.Log("Enemy has no Health component");
+            }
         }
     }
 }
