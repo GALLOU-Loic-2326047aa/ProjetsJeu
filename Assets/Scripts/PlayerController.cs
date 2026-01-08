@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private int count;
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
     [SerializeField] private TextMeshProUGUI healthText;
 
     private float movementX;
@@ -67,10 +66,6 @@ public class PlayerController : MonoBehaviour
             playerHealth.OnHealthChanged.AddListener(UpdateHealthText);
             UpdateHealthText(playerHealth.GetCurrentHealth()); // initialiser le texte
         }
-
-        if (winTextObject != null)
-            winTextObject.SetActive(false);
-
         SetCountText();
     }
 
@@ -144,12 +139,6 @@ public class PlayerController : MonoBehaviour
     {
         switch (data.type)
         {
-            case CollectibleType.PickUp:
-                count += data.value;
-                SetCountText();
-                if (count >= 3 && winTextObject != null)
-                    winTextObject.SetActive(true);
-                break;
             case CollectibleType.Clef:
                 clefs += data.value;
                 foreach (var t in FindObjectsOfType<Transform>())
@@ -157,9 +146,6 @@ public class PlayerController : MonoBehaviour
                     if (t.name == "Couvercle")
                         Destroy(t.gameObject);
                 }
-                break;
-            case CollectibleType.Trophee:
-                winTextObject.SetActive(true);
                 break;
             case CollectibleType.Epee:
                 if (spinningSwordPrefab != null)

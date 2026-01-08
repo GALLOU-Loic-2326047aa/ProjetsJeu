@@ -23,8 +23,15 @@ public class Collectible : MonoBehaviour
         if (other.TryGetComponent<PlayerController>(out var player))
         {
             player.HandleCollectible(data);
+
+            if (data.type == CollectibleType.Trophee)
+            {
+                GameManager.Instance.WinGame();
+            }
+
             if (destroyOnCollect) Destroy(gameObject);
             else gameObject.SetActive(false);
         }
     }
+
 }
