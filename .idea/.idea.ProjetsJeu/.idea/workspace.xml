@@ -5,8 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b5e09c4f-32ec-45b0-8308-446173848a51" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjetsJeu/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraFocus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraFocus.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Axe_Bronze.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Axe_Bronze.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/BookGroup_Medium_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/BookGroup_Small_3.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Book_5.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Book_Stack_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Bucket_Metal.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Bucket_Wooden_1.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Bucket_Wooden_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Cage_Small.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Carrot.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Chandelier.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Coin.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Coin.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Coin_Pile_2.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Crate_Metal.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Scroll_2.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Shelf_Arch.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Shelf_Simple.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/SmallBottles_1.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Stool.fbx.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Sword_Bronze.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Exports/FBX/Table_Knife.fbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Cloth_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Cloth_ORM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Furniture_BaseColor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Furniture_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Furniture_ORM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Metal_BaseColor.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Props_Normal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Imports/Textures/T_Trim_Props_Normal.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scenes/MiniGameloic/LightingData.asset.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +187,7 @@
       <workItem from="1766877680304" duration="2318000" />
       <workItem from="1767725178107" duration="705000" />
       <workItem from="1767732039387" duration="6096000" />
-      <workItem from="1767825986811" duration="1860000" />
+      <workItem from="1767825986811" duration="2724000" />
     </task>
     <task id="LOCAL-00001" summary="Collectible trophee ajouté">
       <option name="closed" value="true" />
@@ -207,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767746427679</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="progress décor">
+      <option name="closed" value="true" />
+      <created>1767832387301</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1767832387301</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +278,8 @@
     <MESSAGE value="le caca est cuit" />
     <MESSAGE value="Gros commit de début de la tour" />
     <MESSAGE value="2eme commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="2eme commit" />
+    <MESSAGE value="progress décor" />
+    <option name="LAST_COMMIT_MESSAGE" value="progress décor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
