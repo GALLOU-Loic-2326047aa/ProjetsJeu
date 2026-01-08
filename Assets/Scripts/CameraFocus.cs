@@ -20,13 +20,10 @@ public class CameraFocus : MonoBehaviour
     void LateUpdate()
     {
         if (!target) return;
-
-        // Rotation uniquement avec clic droit
         
-            yaw += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
-            pitch -= Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
-            pitch = Mathf.Clamp(pitch, 5f, 90f);
-        
+        yaw += Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
+        pitch -= Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+        pitch = Mathf.Clamp(pitch, -20f, 45f);
 
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
         Vector3 offset = rotation * new Vector3(0, 0, -distance);
