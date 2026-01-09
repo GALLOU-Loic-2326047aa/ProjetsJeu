@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
         OnDeath?.Invoke();
         if (destroyOnDeath)
         {
-            Destroy(transform.root.gameObject); // détruit l'objet racine pour supprimer tout l'ennemi
+            Destroy(gameObject); // détruit seulement l'objet ennemi
         }
     }
 }
