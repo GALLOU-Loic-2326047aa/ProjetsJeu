@@ -20,6 +20,14 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("AcceuilDuJeu");
         Time.timeScale = 1f;
     }
+     
+    public void DeathMenu()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("GameOver");
+        Time.timeScale = 1f;
+    }
     
     public void QuitGame()
     {

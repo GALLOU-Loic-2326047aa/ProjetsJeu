@@ -87,6 +87,12 @@ public class GameManager : MonoBehaviour
             Debug.Log("Score envoyé avec succès !");
         menuManager.MainMenu();
     }
+
+    public void LoadDeathMenu()
+    {
+        if(menuManager != null)
+            menuManager.DeathMenu();
+    }
 }
 
 
