@@ -775,7 +775,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   apiBaseUrl: https://api.jeu.gallou-online.fr
   content: {fileID: 101144538}
-  leaderboardItemPrefab: {fileID: 493959839899972523, guid: a51c99abcda5dc643859861996e2376c, type: 3}
+  leaderboardItemPrefab: {fileID: 493959839899972523, guid: 501c9b5c6bb5426eb61c0e980d9e5354, type: 3}
 --- !u!4 &521127984
 Transform:
   m_ObjectHideFlags: 0

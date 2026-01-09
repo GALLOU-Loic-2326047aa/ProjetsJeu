@@ -5,8 +5,8 @@ public class GameOverMenuManager : MonoBehaviour
 {
     public void RestartGame()
     {
-        // Recharge la scène MiniGameloic pour relancer la partie
-        SceneManager.LoadScene("MiniGameloic");
+        // Recharge la scène MiniGame pour relancer la partie
+        SceneManager.LoadScene("MiniGame");
         Time.timeScale = 1f; // Remet le temps normal
     }
 

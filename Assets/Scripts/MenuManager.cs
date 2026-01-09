@@ -11,13 +11,21 @@ public class MenuManager : MonoBehaviour
     
     public void PlayGame2()
     {
-        SceneManager.LoadScene("MiniGameloic");
+        SceneManager.LoadScene("MiniGame");
         Time.timeScale = 1f;
     }
 
     public void MainMenu()
     {
         SceneManager.LoadScene("AcceuilDuJeu");
+        Time.timeScale = 1f;
+    }
+     
+    public void DeathMenu()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        SceneManager.LoadScene("GameOver");
         Time.timeScale = 1f;
     }
     

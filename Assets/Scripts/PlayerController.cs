@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
 using TMPro;
+using System.Collections.Generic;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,7 +38,6 @@ public class PlayerController : MonoBehaviour
     private bool isDashing = false;
     private bool isGrounded;
 
-    private int clefs = 0;
 
     public event Action OnJumpButtonPressed;
     
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             float speed = moveDir.magnitude;
             animator.SetFloat("Speed", speed);
-            if (Time.time - lastLogTime >= 1f) // Log la vitesse toutes les secondes
+            if (Time.time - lastLogTime >= 1f)
             {
                 Debug.Log("Speed set to: " + speed);
                 lastLogTime = Time.time;
@@ -162,12 +163,7 @@ public class PlayerController : MonoBehaviour
         switch (data.type)
         {
             case CollectibleType.Clef:
-                clefs += data.value;
-                foreach (var t in FindObjectsOfType<Transform>())
-                {
-                    if (t.name == "Couvercle")
-                        Destroy(t.gameObject);
-                }
+                AddKey(data.keyId);
                 break;
             case CollectibleType.Epee:
                 if (spinningSwordPrefab != null)
@@ -261,5 +257,20 @@ public class PlayerController : MonoBehaviour
     {
         if (healthText != null)
             healthText.text = "Health: " + currentHealth;
+    }
+
+    private HashSet<string> keys = new HashSet<string>();
+
+    public void AddKey(string keyId)
+    {
+        if (string.IsNullOrEmpty(keyId)) return;
+
+        keys.Add(keyId);
+        Debug.Log("Clé récupérée : " + keyId);
+    }
+
+    public bool HasKey(string keyId)
+    {
+        return keys.Contains(keyId);
     }
 }
