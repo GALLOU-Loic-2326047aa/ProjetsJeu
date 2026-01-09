@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
         {
             float speed = moveDir.magnitude;
             animator.SetFloat("Speed", speed);
-            if (Time.time - lastLogTime >= 1f) // Log la vitesse toutes les secondes
+            if (Time.time - lastLogTime >= 1f)
             {
                 Debug.Log("Speed set to: " + speed);
                 lastLogTime = Time.time;
