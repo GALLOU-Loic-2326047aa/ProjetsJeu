@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
     
     public void PlayGame2()
     {
-        SceneManager.LoadScene("MiniGameloic");
+        SceneManager.LoadScene("MiniGame");
         Time.timeScale = 1f;
     }
 
